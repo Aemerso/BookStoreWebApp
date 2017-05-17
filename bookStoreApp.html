@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+   <head>
+        <meta charset="UTF-8">
+	<title>Baan-Nai-Din Books</title>
+        <link rel="stylesheet" href="styles.css">
+	<script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div class="container" id="HPBooks">
+
+        <header>
+            <h1>Baan-Nai-Din Books</h1>
+        </header>
+    <nav>
+    <ul>
+        <li><a href="#" v-on:click="showHP">Harry Potter</a></li>
+        <li><a href="#" v-on:click="showGoT">A Song of Ice and Fire</a></li>
+        <li><a href="#" v-on:click="showDF">Dresden Files</a></li>
+    </ul>
+    </nav>
+
+    <article id="hp" v-show="seeHP">
+        <h1>Harry Potter</h1>
+        <p>Imagine a school in a castle filled with moving staircases, a sport played on flying broomsticks,
+            an evil wizard intent on domination, an ordinary boy who's the hero of a whole world he doesn't know.
+            This is the story that comes to life in the marvelous Harry Potter series by J. K. Rowling.</p>
+        <p>The Dark Lord, Voldemort, tried to murder Harry when he was just a baby-but he failed,
+            killing Harry's parents but leaving him with a lightning-bolt scar. After Voldemort's disappearance,
+            Harry is sent to live with his nasty aunt and uncle, far away from any hint of magic.
+            But at the age of eleven, he is invited to attend Hogwarts School of Witchcraft and Wizardry,
+            and a magical world opens before him.</p>
+    </article>
+    <article id="GoT" v-show="seeGoT">
+        <h1>A Song of Ice and Fire</h1>
+        <h4>"Winter is coming."</h4>
+	   <p> As the inspiration of one of HBO's newest hit shows, "Game of Thrones" Martin's
+            saga tells the story of multiple characters in the fictional lands of Westeros and Essos.
+            All of whom take part in the struggle for the Iron throne, and control of the Seven kingdoms</p>
+        <p>A Song of Ice and Fire takes place in a world in which seasons last for years and end unpredictably.
+            Nearly three centuries before the events of the first novel, the Seven Kingdoms of Westeros were united
+            under the Targaryen dynasty. At the beginning of A Game of Thrones, 15 peaceful summer years have passed
+            since the rebellion that deposed the last Targaryen king and proclaimed Robert Baratheon king of the Seven Kingdoms.</p>
+    
+    </article>
+    <article id="df" v-show="seeDF">
+        <h1>Dresden Files</h1>
+        <p>In the world of The Dresden Files, magic is real, along with vampires, demons, spirits, faeries,
+            werewolves, outsiders, and other monsters. Although the supernatural is still widely discredited,
+            it is practiced by some members of society.Each species in the series (humans, faeries, vampires, etc.)
+            has its own political and societal rules and organizations. The human wizards depend on the White Council,
+            while faeries may belong to either of two Faerie Courts, or none at all. Vampires may belong to any of four vampire courts.
+        <p> Harry Dresden works as the world's only "consulting wizard", accepting supernatural cases from both
+            human and non-human clients, as well as the Chicago PD's Special Investigation unit. As the series progresses,
+            Dresden takes on an increasingly important role in the supernatural world at large as he works to protect
+            the general public, making it difficult for him to get by as a working wizard and private investigator.
+            He finds himself facing off against an increasing variety of creatures (including other wizards),
+            while facing the realization that his various cases may all be tied together behind the scenes.
+    </article>
+
+<hr>
+    <h2>Buy The Whole Series Now!</h2>
+    <h3>Each Book is 100 Baht. Multiple books may qualify you for a special discount!*</h3>
+<hr>
+ <form>
+        <input v-model.number="books[0]" type='number' placeholder='0' min='0' max='99'> Book 1: 
+            <span v-show="seeHP">Harry Potter and The Sorceror's Stone</span>
+            <span v-show="seeGoT">A Game of Thrones</span>
+            <span v-show="seeDF">Storm Front</span><br>
+
+        <input v-model.number="books[1]" type='number' placeholder='0' min='0' max='99'> Book 2: 
+            <span v-show="seeHP">Harry Potter and The Chamber of Secrets</span>
+            <span v-show="seeGoT">A Clash of Kings</span>
+            <span v-show="seeDF">Foul Moon</span><br>
+
+        <input v-model.number="books[2]" type='number' placeholder='0' min='0' max='99' > Book 3: 
+            <span v-show="seeHP">Harry Potter and The Prisoner of Azkaban</span>
+            <span v-show="seeGoT">A Storm of Swords</span>
+            <span v-show="seeDF">Grave Peril</span><br>
+
+        <input v-model.number="books[3]" type='number' placeholder='0' min='0' max='99'> Book 4: 
+            <span v-show="seeHP">Harry Potter and The Goblet of Fire</span>
+            <span v-show="seeGoT">A Feast for Crows</span>
+            <span v-show="seeDF">Summer Knight</span><br>
+
+        <input v-model.number="books[4]" type='number' placeholder='0' min='0' max='99'> Book 5: 
+            <span v-show="seeHP">Harry Potter and The Order of the Phoenix</span>
+            <span v-show="seeGoT">A Dance With Dragons</span>
+            <span v-show="seeDF">Death Masks</span><br>
+
+        <input v-model.number="books[5]" type='number' placeholder='0' min='0' max='99' > Book 6: 
+            <span v-show="seeHP">Harry Potter and The Half-Blood Prince</span>
+            <span v-show="seeGoT">The Winds of Winter</span>
+            <span v-show="seeDF">Blood Rites</span><br>
+
+        <input v-model.number="books[6]" type='number' placeholder='0' min='0' max='99'> Book 7: 
+            <span v-show="seeHP">Harry Potter and The Deathly Hallows</span>
+            <span v-show="seeGoT">A Dream of Spring</span>
+            <span v-show="seeDF">Dead Beat</span><br>
+
+        <button v-on:click="submitOrder()" type="button">Submit Order</button></br>
+    </form> 
+    <p id='confirmation' v-show="seeConfirm" ></p>
+<hr>
+    <p>*A cumulative 10% discount is given for each different book ordered after the first. 
+        Two different books recieve a 20% discount and ordering all seven recieve a 60% discount.<br>
+        Discounts are applied to each set of different books separately.</p>  
+
+    <footer>Author: Anthony Emerson</footer>
+
+     </div>    
+	<script src="app.js"></script>
+
+    </body>
+</html>
